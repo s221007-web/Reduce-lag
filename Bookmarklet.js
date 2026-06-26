@@ -1,17 +1,1 @@
-javascript:(function(){ 
-  const css = `* { transition: none !important; animation: none !important; scroll-behavior: auto !important; will-change: auto !important; } video, audio { pointer-events: none; }`;
-  let style = document.getElementById('lag-killer');
-  if(style){ style.remove(); console.log('%cLag Reduction OFF','color:#f80'); return; }
-  
-  style = document.createElement('style');
-  style.id = 'lag-killer';
-  style.innerHTML = css;
-  document.head.appendChild(style);
-  
-  document.querySelectorAll('video, audio, canvas').forEach(el => {
-    if(el.tagName === 'VIDEO' || el.tagName === 'AUDIO') el.pause();
-    el.style.imageRendering = 'crisp-edges';
-  });
-  
-  console.log('%c🚀 Maximum Lag Reduction ON','color:#0f0;font-size:15px;font-weight:bold');
-})();
+javascript:(function(){var id='__bm_panic_mode';if(document.getElementById(id)){document.getElementById(id).remove();var oldNotice=document.getElementById('__bm_panic_notice');if(oldNotice)oldNotice.remove();alert('Panic mode visual rules removed. Note: timers/overrides already cleared cannot be restored automatically.');return;}var style=document.createElement('style');style.id=id;style.textContent='*{animation:none!important;transition:none!important}img,video,iframe,canvas{animation:none!important;transition:none!important}body {backface-visibility:hidden;-webkit-backface-visibility:hidden}';(document.head||document.documentElement).appendChild(style);try{Array.from(document.querySelectorAll('video, audio')).forEach(function(m){try{m.pause();m.muted=true;m.preload='none';}catch(e){}});}catch(e){}try{var probe=setInterval(function(){},1000);var maxId=probe;clearInterval(probe);for(var i=0;i<=maxId+1000;i++){try{clearInterval(i);clearTimeout(i);}catch(e){}}}catch(e){}try{window.requestAnimationFrame=function(){return 0;};window.cancelAnimationFrame=function(){};}catch(e){}try{Array.from(document.querySelectorAll('iframe')).forEach(function(f){try{var r=f.getBoundingClientRect();if((r.widthr.height)>20000){f.style.display='none';f.setAttribute('data-bm-hidden','1');}}catch(e){try{f.style.display='none';f.setAttribute('data-bm-hidden','1');}catch(e){}}});}catch(e){}try{Array.from(document.querySelectorAll('canvas, img, picture, svg')).forEach(function(el){try{el.style.willChange='auto';}catch(e){}});}catch(e){}try{var n=document.createElement('div');n.id='__bm_panic_notice';n.style.cssText='position:fixed;right:12px;bottom:12px;background:#111;color:#fff;padding:8px 10px;border-radius:6px;font:12px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;z-index:2147483647;box-shadow:0 6px 22px rgba(0,0,0,.55)';n.textContent='Panic mode: animations stopped, media paused, timers cleared, large iframes hidden.';var btn=document.createElement('button');btn.textContent='Dismiss';btn.style.cssText='margin-left:8px;padding:3px 6px;border:0;border-radius:4px;background:#fff;color:#000;cursor:pointer';btn.onclick=function(){n.remove();};n.appendChild(btn);document.documentElement.appendChild(n);}catch(e){} })();

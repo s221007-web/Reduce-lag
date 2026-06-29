@@ -11,3 +11,6 @@ If you find a bug, have a suggestion, or want to say hello, please do not send a
 3. Write your message and submit it!
 
 Thank you for checking out my project!
+Here's how to use it:
+use bookmarklet.js as a bookmarklet.
+Use userscript.js as a normal userscript in tampermonkey or greaseymonkey or violentmonkey.

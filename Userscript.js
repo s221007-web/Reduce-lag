@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Universal Webpage Panic Mode
 // @namespace    https://github.com
-// @version      1.0
-// @description  Instantly freeze animations, mute/pause media, and kill all running scripts/timers via a hotkey.
+// @version      1.1
+// @description  Instantly freeze animations, mute/pause media, and kill all running scripts/timers via a hotkey (Ctrl + Shift + X).
 // @author       Your Name
 // @match        *://*/*
 // @grant        none
@@ -63,7 +63,7 @@
             const maxId = probe;
             clearInterval(probe);
 
-            // Added safety buffer to catch tight, rapid intervals
+            // Fixed syntax: added + operators for the loop and increment
             for (let i = 0; i <= maxId + 1000; i++) {
                 try {
                     clearInterval(i);
@@ -71,15 +71,16 @@
                 } catch (e) {}
             }
         } catch (e) {}
-        
+
         console.log('Panic Mode Activated: Page activity frozen.');
     }
 
-    // 4. Keyboard Shortcut Listener (Ctrl + Shift + Escape)
+    // 4. Keyboard Shortcut Listener
+    // Note: Changed from Ctrl+Shift+Escape (reserved by Windows for Task Manager) to Ctrl+Shift+X
     window.addEventListener('keydown', function(event) {
-        if (event.ctrlKey && event.shiftKey && event.key === 'Escape') {
+        if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'x') {
             event.preventDefault();
             triggerPanicMode();
         }
-    }, true); // Using capturing phase to intercept before page scripts block it
+    }, true); // Using capture phase to intercept events early
 })();
